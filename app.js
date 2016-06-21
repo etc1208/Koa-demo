@@ -33,9 +33,6 @@ xtplApp(app,{
     views: config.viewDir
 });
 
-
-
-
 var session = require('koa-session');
 app.use(session(app));
 
@@ -60,6 +57,9 @@ app.use(router(app));
 //应用路由
 var appRouter = require('./router/index');
 appRouter(app);
+
+var usersRouter = require('./router/users');
+usersRouter(app);
 
 app.listen(config.port);
 console.log('listening on port %s',config.port);
